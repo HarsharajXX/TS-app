@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #333;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #f9fafb;
+}
+
+.input-group i {
+  margin-right: 10px;
+  color: #2563eb;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #333;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.map {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.panic-btn {
+  background: red;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.info-text {
+  margin-top: 10px;
+  color: gray;
+}
+
+.alert-text {
+  font-size: 24px;
+  color: #2563eb;
+}
+
+.success {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.small-text {
+  font-size: 14px;
+  color: gray;
+}
+
+.tourist-id {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.navbar a {
+  font-size: 22px;
+  color: #333;
+  text-decoration: none;
+}

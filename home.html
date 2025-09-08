@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourist Safety - Home</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #2563eb;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #map {
+      flex: 1;
+      height: 100%;
+      width: 100%;
+    }
+    .panic-container {
+      text-align: center;
+      margin: 15px;
+    }
+    .panic-btn {
+      background: #dc2626;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      padding: 20px 40px;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .panic-btn:hover {
+      transform: scale(1.05);
+    }
+    .tourist-id {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #374151;
+    }
+    nav {
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #374151;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav a.active {
+      color: #2563eb;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    🛡 Tourist Safety
+  </header>
+
+  <!-- Tourist ID -->
+  <div class="tourist-id">
+    Tourist ID: <strong>#T12345</strong>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Panic Button -->
+  <div class="panic-container">
+    <button class="panic-btn" onclick="sendAlert()">🚨 PANIC</button>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav>
+    <a href="home.html" class="active">🏠 Home</a>
+    <a href="myinfo.html">👤 My Info</a>
+  </nav>
+
+  <!-- Scripts -->
+  <script>
+    let map, marker, lat, lon;
+
+    function initMap() {
+      // Default coordinates
+      lat = 26.2006;
+      lon = 92.9376;
+
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: { lat: lat, lng: lon }
+      });
+
+      marker = new google.maps.Marker({
+        position: { lat: lat, lng: lon },
+        map: map,
+        title: "Your Location"
+      });
+
+      // Try to get live location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+
+            map.setCenter({ lat: lat, lng: lon });
+            marker.setPosition({ lat: lat, lng: lon });
+          },
+          () => {
+            alert("⚠ Could not get your live location. Using default.");
+          }
+        );
+      }
+    }
+
+    // When panic pressed
+    function sendAlert() {
+      if (lat && lon) {
+        localStorage.setItem("lat", lat);
+        localStorage.setItem("lon", lon);
+      }
+      window.location.href = "alert.html";
+    }
+  </script>
+
+  <!-- Google Maps API -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXV1_eBiedDG7mOhBnECPPHF-THOdXr2M&callback=initMap">
+  </script>
+</body>
+</html>
