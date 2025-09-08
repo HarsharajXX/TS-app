@@ -4,63 +4,210 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Info - Tourist Safety</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #2563EB, #1E3A8A);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .info-container {
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #1E3A8A;
+      font-weight: 700;
+    }
+
+    .info-container h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #2563EB;
+    }
+
+    .info-container p {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .required {
+      color: red;
+      margin-left: 4px;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 40px;
+      left: 12px;
+      color: #2563EB;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 14px 12px 38px; /* space for icon */
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2563EB;
+      color: #fff;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #1E40AF;
+    }
+
+    .success-msg {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: green;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="logo">My Info</h1>
-    <p class="tourist-id">Tourist ID: T12345</p>
+  <div class="info-container">
+    <header>
+      <h1>🛡️ Tourist Safety</h1>
+    </header>
 
-    <div class="input-group">
-      <i class="fa-solid fa-user"></i>
-      <input type="text" placeholder="Name">
-    </div>
+    <h2>My Information</h2>
+    <p>Keep your emergency details updated</p>
 
-    <div class="input-group">
-      <i class="fa-solid fa-phone"></i>
-      <input type="tel" placeholder="Phone">
-    </div>
+    <form id="infoForm">
+      <div class="input-group">
+        <label for="name">Full Name<span class="required">*</span></label>
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+      </div>
 
-    <div class="input-group">
-      <i class="fa-solid fa-user-group"></i>
-      <input type="tel" placeholder="Emergency Contact 1">
-    </div>
+      <div class="input-group">
+        <label for="email">Email Address<span class="required">*</span></label>
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
 
-    <div class="input-group">
-      <i class="fa-solid fa-user-group"></i>
-      <input type="tel" placeholder="Emergency Contact 2">
-    </div>
+      <div class="input-group">
+        <label for="phone">Phone Number<span class="required">*</span></label>
+        <i class="fa-solid fa-phone"></i>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+      </div>
 
-    <div class="input-group">
-      <i class="fa-solid fa-house"></i>
-      <input type="text" placeholder="Address">
-    </div>
+      <div class="input-group">
+        <label for="emergency1">Emergency Contact 1<span class="required">*</span></label>
+        <i class="fa-solid fa-user-shield"></i>
+        <input type="tel" id="emergency1" placeholder="Enter primary emergency contact" required>
+      </div>
 
-    <div class="input-group">
-      <i class="fa-solid fa-droplet"></i>
-      <input type="text" placeholder="Blood Group">
-    </div>
+      <div class="input-group">
+        <label for="emergency2">Emergency Contact 2<span class="required">*</span></label>
+        <i class="fa-solid fa-user-shield"></i>
+        <input type="tel" id="emergency2" placeholder="Enter secondary emergency contact">
+      </div>
 
-    <div class="input-group">
-      <i class="fa-solid fa-pills"></i>
-      <input type="text" placeholder="Allergies / Medical Conditions">
-    </div>
+      <div class="input-group">
+        <label for="blood">Blood Group<span class="required">*</span></label>
+        <i class="fa-solid fa-droplet"></i>
+        <input type="text" id="blood" placeholder="e.g. O+, A-, B+">
+      </div>
 
-    <div class="input-group">
-      <i class="fa-solid fa-id-card"></i>
-      <input type="text" placeholder="ID Proof (Aadhaar/Passport)">
-    </div>
+      <div class="input-group">
+        <label for="address">Address<span class="required">*</span></label>
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" id="address" placeholder="Enter your current address">
+      </div>
 
-    <div class="btn-group">
-      <button class="btn-secondary">Cancel Changes</button>
-      <button class="btn-primary">Save Changes</button>
-    </div>
+      <button type="submit" class="btn">💾 Save Information</button>
+    </form>
+
+    <p class="success-msg" id="successMsg">✅ Info saved successfully!</p>
   </div>
 
-  <div class="navbar">
-    <a href="home.html"><i class="fa-solid fa-house"></i></a>
-    <a href="myinfo.html"><i class="fa-solid fa-user"></i></a>
-  </div>
+  <script>
+    // Load stored info on page load
+    window.onload = function() {
+      const fields = ["name", "email", "phone", "emergency1", "emergency2", "blood", "address"];
+      fields.forEach(field => {
+        if (localStorage.getItem(field)) {
+          document.getElementById(field).value = localStorage.getItem(field);
+        }
+      });
+    };
+
+    // Save updated info
+    document.getElementById("infoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const fields = ["name", "email", "phone", "emergency1", "emergency2", "blood", "address"];
+      fields.forEach(field => {
+        localStorage.setItem(field, document.getElementById(field).value);
+      });
+
+      document.getElementById("successMsg").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("successMsg").style.display = "none";
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
