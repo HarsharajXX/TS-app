@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Tourist Safety</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #2563EB, #1E3A8A);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+      overflow: hidden;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 0 rgba(37, 99, 235, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+      }
+      100% {
+        box-shadow: 0 0 0 rgba(37, 99, 235, 0.2);
+      }
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeSlideUp 0.9s ease forwards, glowPulse 3s ease-in-out infinite;
+    }
+
+    .login-container h2 {
+      margin-bottom: 10px;
+      font-size: 26px;
+      font-weight: 600;
+      color: #1E3A8A;
+    }
+
+    .login-container p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+      transform: scale(1.02);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2563EB;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #1E40AF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .login-link {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .login-link a {
+      color: #2563EB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <p>Login to continue your journey safely</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <p class="login-link">
+      Don’t have an account? <a href="index.html">Register here</a>
+    </p>
+  </div>
+
+  <script>
+    // Mock login redirect
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Login successful (mock). Redirecting to Home...");
+      window.location.href = "home.html";
+    });
+  </script>
+</body>
+</html>
